@@ -9,11 +9,14 @@ Bundler.require(*Rails.groups)
 module Static
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    config.load_defaults 5.2
+
+    # SQLite3 boolean representation setting
+    config.active_record.sqlite3.represent_boolean_as_integer = true
 
     # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-    config.action_view.embed_authenticity_token_in_remote_forms = true
+    # Application configuration can go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded after loading
+    # the framework and any gems in your application.
   end
 end
